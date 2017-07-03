@@ -32,8 +32,8 @@ app.set("view engine", "handlebars");
 //=====================================
 //      Routes
 //=====================================
-
-
+require("./routes/public/account-api.js")(app);
+require("./routes/private/user-api.js")(app);
 
 //=====================================
 //    Port Listener
