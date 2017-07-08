@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  up: function (queryInterface, Sequelize) {
+  up: function(queryInterface, Sequelize) {
     queryInterface.createTable('Vitals', {
       id: {
         type: Sequelize.INTEGER,
@@ -59,11 +59,20 @@ module.exports = {
       updated_at: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       }
     });
   },
 
-  down: function (queryInterface, Sequelize) {
+  down: function(queryInterface, Sequelize) {
     return queryInterface.dropTable('Vitals');
   }
 };

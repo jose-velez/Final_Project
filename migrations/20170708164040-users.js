@@ -1,25 +1,25 @@
 'use strict';
 
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    queryInterface.createTable('Records', {
+  up: function(queryInterface, Sequelize) {
+    queryInterface.createTable('Users', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
         autoIncrement: true
       },
-      name: {
+      username: {
         type: Sequelize.STRING,
         allowNull: false,
+        unique: {
+          args: true,
+          msg: "username has been used"
+        },
         validate: {
-          len: [1]
+          len: [1],
         }
       },
-      dateOfBirth: {
-        type: Sequelize.DATEONLY,
-        allowNull: false
-      },
-      gender: {
+      password: {
         type: Sequelize.STRING,
         allowNull: false
       },
@@ -34,7 +34,7 @@ module.exports = {
     });
   },
 
-  down: function (queryInterface, Sequelize) {
+  down: function(queryInterface, Sequelize) {
     return queryInterface.dropTable('Users');
   }
 };

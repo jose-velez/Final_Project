@@ -1,8 +1,8 @@
 'use strict';
 
 module.exports = {
-  up: function (queryInterface, Sequelize) {
-    queryInterface.createTable('Medicines', {
+  up: function(queryInterface, Sequelize) {
+    queryInterface.createTable('Records', {
       id: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -15,8 +15,12 @@ module.exports = {
           len: [1]
         }
       },
-      info: {
-        type: Sequelize.TEXT,
+      dateOfBirth: {
+        type: Sequelize.DATEONLY,
+        allowNull: false
+      },
+      gender: {
+        type: Sequelize.STRING,
         allowNull: false
       },
       created_at: {
@@ -26,12 +30,20 @@ module.exports = {
       updated_at: {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
+      },
+      userId: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'Users',
+          key: 'id'
+        },
+        onUpdate: 'cascade',
+        onDelete: 'cascade'
       }
-
     });
   },
 
-  down: function (queryInterface, Sequelize) {
-    return queryInterface.dropTable('Medicines');
+  down: function(queryInterface, Sequelize) {
+    return queryInterface.dropTable('Users');
   }
 };
