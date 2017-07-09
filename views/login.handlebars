@@ -7,10 +7,10 @@
       <h2 class="sr-only">Login Form</h2>
       <div class="illustration"><i class="icon ion-ios-medical-outline"></i></div>
       <div class="form-group">
-        <input type="email" name="email" placeholder="Email" class="form-control" />
+        <input type="email" name="email" placeholder="Email" class="form-control" id="login-email"/>
       </div>
       <div class="form-group">
-        <input type="password" name="password" placeholder="Password" class="form-control" />
+        <input type="password" name="password" placeholder="Password" class="form-control" id="login-password"/>
       </div>
       <div class="form-group">
         <button class="btn btn-primary btn-block" type="submit">Log In</button>
@@ -33,19 +33,20 @@
           <div class="login-clean">
             <form method="post">
               <div class="form-group">
-                <input type="name" name="name" placeholder="First Name" class="form-control" />
+                <input type="name" name="name" placeholder="First Name" class="form-control" id="reg-firstName"/>
               </div>
               <div class="form-group">
-                <input type="name" name="name" placeholder="Last Name" class="form-control" />
+                <input type="name" name="name" placeholder="Last Name" class="form-control" id="reg-lastName"/>
               </div>
               <div class="form-group">
-                <input type="email" name="email" placeholder="Email" class="form-control" />
+                <input type="email" name="email" placeholder="Email" class="form-control" id="reg-email"/>
               </div>
               <div class="form-group">
-                <input type="password" name="password" placeholder="Password" class="form-control" />
+                <input type="password" name="password" placeholder="Password" class="form-control" id="reg-password" />
               </div>
               <div class="form-group">
-                <input type="password" name="password" placeholder="Confirm Password" class="form-control" />
+                <input type="password" name="confirm-password" placeholder="Confirm Password" class="form-control" id="reg-confirmPassword"/>
+                <div id="regErrMsg"></div>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
