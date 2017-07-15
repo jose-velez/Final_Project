@@ -1,7 +1,7 @@
 {{>nav}}
 
 
-<div class="container">
+<div class="container" id="withRecord">
   <div class="row">
     <div class="col-md-6 col-sm-12">
       <img src="../assets/img/stethoscope.jpg" alt="Profile Picture">
@@ -17,6 +17,39 @@
     <div class="col-md-6 col-sm-12 sol-xs-12">
       <h3>all info</h3>
     </div>
+  </div>
+
+</div>
+
+<div class="container" id="noRecord">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <h3>Looks like you have not created your record. Let's create One</h3>
+      <!-- Button trigger modal -->
+      <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+          Create your Record
+      </button>
+
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+          </div>
+          <div class="modal-body">
+            ...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </div>

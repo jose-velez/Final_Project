@@ -54,11 +54,11 @@ $(document).ready(function() {
         url: '/login',
         data: loginObj,
         success: function (res) {
-            //var token = res.token;
-          //  console.log(token);
-            // localStorage.setItem('token', token);
-            console.log("User log-in");
-            location.href = "/record";
+          var token = res.token;
+          console.log(token);
+          localStorage.setItem('token', token);
+          console.log("User log-in");
+          location.href = "/record";
         },
   });
 });

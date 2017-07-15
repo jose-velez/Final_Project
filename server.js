@@ -9,6 +9,7 @@ var mysql = require("mysql");
 var metodOverride = require("method-override");
 var sequelize = require("sequelize");
 var bcrypt = require("bcrypt");
+var cookieParser = require("cookie-parser");
 
 // Initialize express app
 var app = express();
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: false
 }));
+app.use(cookieParser());
 
 app.use(metodOverride("_method"));
 

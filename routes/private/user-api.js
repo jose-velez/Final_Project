@@ -5,39 +5,41 @@ const jwtSecret = process.env.JWT_SECRET || 'secret';
 
 module.exports = function(app) {
 
-// Authenticating the user, using jwt
-app.use(function(req, res, next) {
-        // var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token;
-        // console.log('app.use', token);
+  // Authenticating the user, using jwt
+  app.use(function(req, res, next) {
 
-  var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token;
+    // var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token;
+    // console.log('app.use', token);
+    // console.log(req.body);
+    console.log(req.cookies);
+    var token = req.body.token || req.query.token || req.headers['x-access-token'] || req.cookies.token;
 
 
-  if (token) {
+    if (token) {
 
-    jwt.verify(token, jwtSecret, function(err, decoded) {
-      if (err) {
-        return res.status(403).json({
-          success: false,
-          message: 'Authentication failed.'
-        });
-      } else {
-        console.log("Decoding");
-        req.decoded = decoded;
-        console.log(req.decoded.data);
-        console.log("UID: " + req.decoded.data.uid);
+      jwt.verify(token, jwtSecret, function(err, decoded) {
+        if (err) {
+          return res.status(403).json({
+            success: false,
+            message: 'Authentication failed.'
+          });
+        } else {
+          console.log("Decoding");
+          req.decoded = decoded;
+          console.log(req.decoded.data);
+          console.log("UID: " + req.decoded.data.uid);
 
-        next();
-      }
-    });
+          next();
+        }
+      });
 
-  } else {
-    return res.status(403).send({
-      success: false,
-      message: 'Please provide valid token with request.'
-    });
-  }
-});
+    } else {
+      return res.status(403).send({
+        success: false,
+        message: 'Please provide valid token with request.'
+      });
+    }
+  });
 
 
   //================================
@@ -46,8 +48,16 @@ app.use(function(req, res, next) {
 
   //Getting the Record page
   app.get("/record", function(req, res) {
-      res.render("record");
+    console.log(req.decoded.data);
+    db.Users.findOne({
+      where:{
+        id: req.decoded.data.uid
+      }
+    }).then(function(user){
+      console.log(user);
     });
+  //  res.render("record");
+  });
 
   //Getting the Vitals page
   app.get("/vitals", function(req, res) {
@@ -73,12 +83,12 @@ app.use(function(req, res, next) {
     });
   });
 
-  app.get('/api/record', function(req, res){
+  app.get('/api/record', function(req, res) {
     db.Users.findOne({
-      where:{
-        username: req.query.uid     // Need to have the JWT working
+      where: {
+        id: req.query.uid // Need to have the JWT working
       }
-    }).then(function(user){
+    }).then(function(user) {
       console.log("Id in the Table: " + user);
 
       res.render("record");
