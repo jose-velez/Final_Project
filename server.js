@@ -8,6 +8,7 @@ var bodyParser = require("body-parser");
 var mysql = require("mysql");
 var metodOverride = require("method-override");
 var sequelize = require("sequelize");
+var bcrypt = require("bcrypt");
 
 // Initialize express app
 var app = express();

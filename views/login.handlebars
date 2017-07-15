@@ -3,7 +3,7 @@
 
 
   <div class="login-clean">
-    <form method="post">
+    <form id="login-form" method="get" action="/api/login">
       <h2 class="sr-only">Login Form</h2>
       <div class="illustration"><i class="icon ion-ios-medical-outline"></i></div>
       <div class="form-group">
@@ -13,7 +13,7 @@
         <input type="password" name="password" placeholder="Password" class="form-control" id="login-password"/>
       </div>
       <div class="form-group">
-        <button class="btn btn-primary btn-block" type="submit">Log In</button>
+        <button class="btn btn-primary btn-block" type="button" id="loginBtn">Log In</button>
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#myModal">
         Not a user? Create a new one!
@@ -31,7 +31,7 @@
         </div>
         <div class="modal-body">
           <div class="login-clean">
-            <form method="post">
+            <form method="post" id="registerForm" name="registerForm" method="POST" action="/api/user">
               <div class="form-group">
                 <input type="name" name="name" placeholder="First Name" class="form-control" id="reg-firstName"/>
               </div>
