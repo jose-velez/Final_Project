@@ -50,13 +50,27 @@ module.exports = function(app) {
   app.get("/record", function(req, res) {
     console.log(req.decoded.data);
     db.Users.findOne({
-      where:{
+      where: {
         id: req.decoded.data.uid
       }
-    }).then(function(user){
-      console.log(user);
+    }).then(function(user) {
+      console.log(user.id);
+      db.Records.findOne({
+        where: {
+          userId: user.id
+        }
+      }).then(function(record){
+        console.log(record);
+        if (!record) {
+          res.render("createrecord")
+        }else {
+
+          res.render("record");
+        }
+
+      });
     });
-  //  res.render("record");
+
   });
 
   //Getting the Vitals page

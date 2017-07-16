@@ -1,0 +1,80 @@
+{{>nav}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-sm-12">
+      <div class="create-record">
+        <form id="record-create" method="post" action="api/record">
+          <div class="form-group">
+            <input type="text" name="name" id="recordName" class="form-control" placeholder="Name">
+          </div>
+          <div class="form-group">
+            <input type="date" name="dateofBirth" class="form-control" id="recordDob">
+          </div>
+          <div class="form-group">
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="cancer">Cancer
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="heart disease">Heart Disease
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="diabetes">Diabetes<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="asthma">Asthma<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="mental illness">Mental Illness<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="high blood pressure">High Blood Pressure<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="stroke">Stroke<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="kidney disease">Kidney Disease<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="alcoholism">Alcoholism<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="birth defects">Birth Defects<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="learning disabilities">Learning Disabilities<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="vision loss">Vision Loss<br>
+            </div>
+            <div class="col-md-4 col-sm-6">
+              <input type="checkbox" name="condition1" value="hearing loss">Hearing Loss<br>
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="text" name="contactPerson" class="form-control" placeholder="Contact Name" id="contactName">
+          </div>
+          <div class="form-group">
+            <input type="tel" name="contactPhone" class="form-control" placeholder="(XXX)XXX-XXXX" id="contactNumber">
+          </div>
+          <div class="form-group">
+            <select class="form-control selectpicker" name="relation" id="relation">
+              <option value=" ">Select one</option>
+              <option>Father</option>
+              <option>Mother</option>
+              <option>Brother</option>
+              <option>Life Partner</option>
+              <option>Other</option>
+            </select>
+          </div>
+            <button type="button" name="recordButton" class="btn btn-primary btn-block" id="recordButton">Submit</button>
+
+        </form>
+
+      </div>
+    </div>
+
+  </div>
+
+</div>
