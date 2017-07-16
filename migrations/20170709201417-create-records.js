@@ -19,7 +19,19 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: false
       },
-      gender: {
+      contactName: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      contactNumber: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      relation: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
+      medicalConditions: {
         type: Sequelize.STRING,
         allowNull: false
       },

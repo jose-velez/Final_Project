@@ -40,7 +40,7 @@ $(document).ready(function() {
   //==================================
   //        Login
   //==================================
-  $("#loginBtn").click(function(){
+  $("#loginBtn").click(function() {
     var logEmail = $("#login-email").val().trim();
     var logPass = $("#login-password").val().trim();
 
@@ -50,21 +50,59 @@ $(document).ready(function() {
     };
 
     $.ajax({
-        type: 'post',
-        url: '/login',
-        data: loginObj,
-        success: function (res) {
-          var token = res.token;
-          console.log(token);
-          localStorage.setItem('token', token);
-          console.log("User log-in");
-          location.href = "/record";
-        },
+      type: 'post',
+      url: '/login',
+      data: loginObj,
+      success: function(res) {
+        var token = res.token;
+        console.log(token);
+        localStorage.setItem('token', token);
+        console.log("User log-in");
+        location.href = "/record";
+      },
+    });
   });
-});
 
-//=========================================
-//              Record
-//=========================================
+  //=========================================
+  //             Create Record
+  //=========================================
+  $("#recordButton").click(function() {
+    var recordName = $("#recordName").val().trim();
+    var dateOfBirth = $("#recordDob").val().trim();
+    var contactName = $("#contactName").val().trim();
+    var contactNumber = $("#contactNumber").val().trim();
+    var relation = $("#relation").val().trim();
+    var medicalConditions = $("#medicalConditions input:checked").map(function() {
+      return this.name;
+    }).get();
+
+    var medicalString = JSON.stringify(medicalConditions);
+    console.log(medicalString);
+
+    var recordObj = {
+      recordName: recordName,
+      dateOfBirth: dateOfBirth,
+      contactName: contactName,
+      contactNumber: contactNumber,
+      relation: relation,
+      medicalConditions: medicalString
+    };
+    console.log(recordObj);
+
+    $.ajax({
+      type: 'post',
+      url: '/api/record',
+      data: recordObj,
+      success: function(res){
+        console.log("success: " + res);
+        window.location.href= '/record';
+      },
+      error: function(error){
+        console.log(error);
+        location.href='/record';
+      }
+    });
+
+  });
 
 });

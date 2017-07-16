@@ -12,10 +12,23 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.DATE,
           allowNull: false
         },
-        gender: {
+        contactName: {
           type: DataTypes.STRING,
-          allowNull:false
-        }},{
+          allowNull: false,
+        },
+        contactNumber: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        relation: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
+        medicalConditions: {
+          type: DataTypes.STRING,
+          allowNull: false
+        }
+      },{
           classMethods: {
             associate: function(models) {
               Records.belongsTo(models.Users, {

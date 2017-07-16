@@ -61,8 +61,8 @@ module.exports = function(app) {
         }
       }).then(function(record){
         console.log(record);
-        if (!record) {
-          res.render("createrecord")
+        if (record === null) {
+          res.render("createrecord");
         }else {
 
           res.render("record");
@@ -97,15 +97,24 @@ module.exports = function(app) {
     });
   });
 
-  app.get('/api/record', function(req, res) {
-    db.Users.findOne({
-      where: {
-        id: req.query.uid // Need to have the JWT working
-      }
-    }).then(function(user) {
-      console.log("Id in the Table: " + user);
-
-      res.render("record");
+  app.post('/api/record', function(req, res) {
+    console.log("Api/record route");
+    console.log(req.body);
+    db.Records.create({
+      name: req.body.recordName,
+      dateOfBirth: req.body.dateOfBirth,
+      contactName: req.body.contactName,
+      contactNumber: req.body.contactNumber,
+      relation: req.body.relation,
+      medicalConditions: req.body.medicalConditions
+    }).then(function(dbRecord){
+      console.log(dbRecord);
+      res.json({dbRecord, success: true});
+    }).catch(function(error){
+      console.log("api/record error");
+      console.log(error);
+      res.status(500).json(error);
     });
+
   });
 };
