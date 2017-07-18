@@ -71,6 +71,7 @@ module.exports = function(app) {
 
             }).then(function(dbUsers) {
               console.log("User Created");
+              // Create the token
               var token = jwt.sign({
                 data: {
                   uid: dbUsers.id

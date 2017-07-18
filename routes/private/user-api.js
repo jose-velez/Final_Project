@@ -57,14 +57,15 @@ module.exports = function(app) {
       console.log(user.id);
       db.Records.findOne({
         where: {
-          userId: user.id
+          id: user.id
         }
       }).then(function(record){
-        console.log(record);
+        // Look if there's no record
         if (record === null) {
+          // if there's no record is going to render the create record page.
           res.render("createrecord");
         }else {
-
+          // If there's a record is going to display the record.
           res.render("record");
         }
 
@@ -100,14 +101,18 @@ module.exports = function(app) {
   app.post('/api/record', function(req, res) {
     console.log("Api/record route");
     console.log(req.body);
+    console.log("user id request");
+    console.log(req.decoded.data.uid);
     db.Records.create({
       name: req.body.recordName,
       dateOfBirth: req.body.dateOfBirth,
       contactName: req.body.contactName,
       contactNumber: req.body.contactNumber,
       relation: req.body.relation,
-      medicalConditions: req.body.medicalConditions
+      medicalConditions: req.body.medicalConditions,
+      userId: req.decoded.data.uid
     }).then(function(dbRecord){
+      console.log("then dbrecord");
       console.log(dbRecord);
       res.json({dbRecord, success: true});
     }).catch(function(error){

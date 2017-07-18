@@ -33,6 +33,10 @@ module.exports = function(sequelize, DataTypes) {
             associate: function(models) {
               Records.belongsTo(models.Users, {
                 foreignKey: 'userId',
+                references: {
+                  model: 'Users',
+                  key: 'id'
+                },
                 allowNull: true
               });
             }
