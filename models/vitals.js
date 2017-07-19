@@ -43,15 +43,13 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Vitals.belongsTo(models.Users, {
-          foreignKey: 'userId',
-          allowNull: true
-        });
-      }
-    }
   });
+  Vitals.associate = function(models){
+    Vitals.belongsTo(models.Users,{
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Vitals;
 };

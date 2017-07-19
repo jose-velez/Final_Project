@@ -28,19 +28,15 @@ module.exports = function(sequelize, DataTypes) {
           type: DataTypes.STRING,
           allowNull: false
         }
-      },{
-          classMethods: {
-            associate: function(models) {
-              Records.belongsTo(models.Users, {
-                foreignKey: 'userId',
-                references: {
-                  model: 'Users',
-                  key: 'id'
-                },
-                allowNull: true
-              });
-            }
-          }
-        });
+      });
+
+    Records.associate = function(models) {
+      Records.belongsTo(models.Users, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    };
+
       return Records;
     };

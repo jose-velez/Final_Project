@@ -110,7 +110,7 @@ module.exports = function(app) {
       contactNumber: req.body.contactNumber,
       relation: req.body.relation,
       medicalConditions: req.body.medicalConditions,
-      userId: req.decoded.data.uid
+      UserId: req.decoded.data.uid
     }).then(function(dbRecord){
       console.log("then dbrecord");
       console.log(dbRecord);

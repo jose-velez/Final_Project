@@ -7,16 +7,15 @@ module.exports = function(sequelize, DataTypes) {
     },
     info: {
       type: DataTypes.TEXT
-    },
-  }, {
-    classMethods: {
-      associate: function(models) {
-        Medicines.belongsTo(models.Users, {
-          foreignKey: 'userId',
-          allowNull: true
-        });
-      }
     }
   });
+
+    Medicines.associate = function(models){
+      Medicines.belongsTo(models.Users, {
+        foreignKey: {
+          allowNull: false
+        }
+      });
+    };
   return Medicines;
 };
