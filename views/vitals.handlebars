@@ -1,124 +1,38 @@
 {{>nav}}
 
 <div class="container">
-  <div class="row text-center">
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-      <!-- Button trigger modal -->
-      <img src="../assets/img/stethoscope.jpg" alt="Stethoscope" data-toggle="modal" data-target="#heartRate">
 
-      <!-- Modal -->
-      <div class="modal fade" id="heartRate" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Heart Rate</h4>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+<form id="vitals" action="/api/vitals" method="post">
 
+
+  <div class="row">
+    <div class="col-lg-4 col-sm-6 col-xs-12 form-group">
+      <h2>Heart Rate</h2>
+      <input type="number" name="heartRate" id="heartInput" class="form-control">
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-      <!-- Button trigger modal -->
-      <img src="../assets/img/stethoscope.jpg" alt="Stethoscope" data-toggle="modal" data-target="#bloodGlucose">
-
-      <!-- Modal -->
-      <div class="modal fade" id="bloodGlucose" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Blood Glucose</h4>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="col-lg-4 col-sm-6 col-xs-12 form-group">
+      <h2>Blood Glucose</h2>
+      <input type="number" name="glucose" id="glucoseInput" class="form-control">
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-      <!-- Button trigger modal -->
-      <img src="../assets/img/stethoscope.jpg" alt="Stethoscope" data-toggle="modal" data-target="#weight">
-
-      <!-- Modal -->
-      <div class="modal fade" id="weight" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Weight</h4>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="col-lg-4 col-sm-6 col-xs-12 form-group">
+      <h2>Weight</h2>
+      <input type="number" name="weight" id="weightInput" class="form-control">
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-      <!-- Button trigger modal -->
-      <img src="../assets/img/stethoscope.jpg" alt="Stethoscope" data-toggle="modal" data-target="#bloodPressure">
-
-      <!-- Modal -->
-      <div class="modal fade" id="bloodPressure" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Blood Pressure</h4>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="col-lg-4 col-sm-6 col-xs-12 form-group">
+      <h2>Blood Presure</h2>
+      <label for="systolic">Systolic</label>
+      <input type="number" name="systolic" id="systolicInput" class="form-control"><br>
+      <label for="diastolic">Diastolic</label>
+      <input type="number" name="diastolic" id="diastolicInput" class="form-control">
     </div>
-    <div class="col-lg-4 col-md-4 col-sm-4 col-xs-6">
-      <!-- Button trigger modal -->
-      <img src="../assets/img/stethoscope.jpg" alt="Stethoscope" data-toggle="modal" data-target="#bodyTemp">
-
-      <!-- Modal -->
-      <div class="modal fade" id="bodyTemp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel">Body Temperature</h4>
-            </div>
-            <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
+    <div class="col-lg-4 col-sm-6 col-xs-12 form-group">
+      <h2>Body Temperature</h2>
+      <input type="number" name="bodyTemp" id="tempInput">
     </div>
+  </div>
+  <div class="row">
+    <button class="btn btn-primary btn-block form-control" type="button" name="button" id="vitalBtn">Submit</button>
 
   </div>
 
-</div>
+  </form>

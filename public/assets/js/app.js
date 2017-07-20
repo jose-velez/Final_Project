@@ -93,16 +93,52 @@ $(document).ready(function() {
       type: 'post',
       url: '/api/record',
       data: recordObj,
-      success: function(res){
+      success: function(res) {
         console.log("success: " + res);
-        window.location.href= '/record';
+        window.location.href = '/record';
       },
-      error: function(error){
+      error: function(error) {
         console.log(error);
-        location.href='/record';
+        location.href = '/record';
       }
     });
 
   });
+  //==================================
+  //             Vitals
+  //==================================
+  $("#vitalBtn").click(function() {
+    var heartRate = $("#heartInput").val().trim();
+    var bloodGlucose = $("#glucoseInput").val().trim();
+    var weight = $("#weightInput").val().trim();
+    var systolic = $("#systolicInput").val().trim();
+    var diastolic = $("#diastolicInput").val().trim();
+    var bodyTemp = $("#tempInput").val().trim();
 
+    var vitalsObj = {
+      heartRate: heartRate,
+      bloodGlucose: bloodGlucose,
+      weight: weight,
+      systolic: systolic,
+      diastolic: diastolic,
+      bodyTemp: bodyTemp
+    };
+
+    console.log(vitalsObj);
+
+
+  $.ajax({
+    type: 'post',
+    url: '/api/vitals',
+    data: vitalsObj,
+    success: function(res) {
+      console.log("Vitals Success" + res);
+      location.href = 'record';
+    },
+    error: function(error){
+      console.log(error);
+      location.href= '/vitals';
+    }
+  });
+  });
 });

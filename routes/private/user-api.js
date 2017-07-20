@@ -97,7 +97,7 @@ module.exports = function(app) {
       res.status(200).json(dbUsers);
     });
   });
-
+  // Route to create the Record
   app.post('/api/record', function(req, res) {
     console.log("Api/record route");
     console.log(req.body);
@@ -121,5 +121,25 @@ module.exports = function(app) {
       res.status(500).json(error);
     });
 
+  });
+
+  app.post('/api/vitals', function(req, res) {
+    console.log("Api/Vitals route");
+    db.Vitals.create({
+      heartRate: req.body.heartRate,
+      bloodGlucose: req.body.bloodGlucose,
+      weight: req.body.weight,
+      systolic: req.body.systolic,
+      diastolic: req.body.diastolic,
+      bodyTemp: req.body.bodyTemp,
+      UserId: req.decoded.data.uid
+    }).then(function(dbVitals){
+      console.log("DbVitals");
+      console.log(dbVitals);
+      res.json({dbVitals, success: true});
+    }).catch(function(error){
+      console.log("api/vitals error");
+      res.status(500).json(error);
+    });
   });
 };
