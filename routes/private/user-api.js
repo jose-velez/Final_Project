@@ -65,8 +65,36 @@ module.exports = function(app) {
           // if there's no record is going to render the create record page.
           res.render("createrecord");
         }else {
-          // If there's a record is going to display the record.
-          res.render("record");
+          console.log(record);
+          console.log("Date of Birth");
+          var dob = record.dateOfBirth;
+          db.Vitals.findOne({
+            where: {
+              id: record.id
+            }
+          }).then(function(vitals){
+            var recordObj = {
+              name: record.name,
+              dateOfBirth: record.dateOfBirth,
+              contactName: record.contactName,
+              contactNumber: record.contactNumber,
+              relation: record.relation,
+              gender: record.gender,
+              heartRate: vitals.heartRate,
+              bloodGlucose: vitals.bloodGlucose,
+              weight: vitals.weight,
+              systolic: vitals.systolic,
+              diastolic: vitals.diastolic,
+              bodyTemp: vitals.bodyTemp
+            };
+            console.log("Record OBJ");
+            console.log(recordObj);
+            // If there's a record is going to display the record.
+            res.render("record", recordObj);
+
+          });
+
+
         }
 
       });
@@ -142,4 +170,22 @@ module.exports = function(app) {
       res.status(500).json(error);
     });
   });
+
+//=======================================
+//        Functions needed
+//=======================================
+// Function to Calculate the Age of the user
+
+function getAge(dateString)
+{
+    var today = new Date();
+    var birthDate = new Date(dateString);
+    var age = today.getFullYear() - birthDate.getFullYear();
+    var m = today.getMonth() - birthDate.getMonth();
+    if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate()))
+    {
+        age--;
+    }
+    return age;
+}
 };

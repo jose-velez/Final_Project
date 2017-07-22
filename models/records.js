@@ -8,6 +8,10 @@ module.exports = function(sequelize, DataTypes) {
             len: [1]
           }
         },
+        gender: {
+          type: DataTypes.STRING,
+          allowNull: false
+        },
         dateOfBirth: {
           type: DataTypes.DATE,
           allowNull: false
@@ -26,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
         },
         medicalConditions: {
           type: DataTypes.STRING,
-          allowNull: false
+          allowNull: true
         }
       });
 

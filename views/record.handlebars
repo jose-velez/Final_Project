@@ -4,19 +4,34 @@
 <div class="container" id="withRecord">
   <div class="row">
     <div class="col-md-6 col-sm-12">
-      <img src="../assets/img/stethoscope.jpg" alt="Profile Picture">
-    </div>
-    <div class="col-md-6 col-sm-12">
-      <h3 id="record-name">Name: {{userObj}}</h5>
-      <h3 id="record-dob">Date of birth: </h5>
+      <h3 id="record-name">Name: {{name}}</h5>
+      <h3 id="record-dob">Date of birth: {{dateOfBirth}}</h5>
       <h3 id="record-age">Age: </h5>
-      <h3 id="record-gender">Gender: </h5>
+      <h3 id="record-gender">Gender: {{gender}}</h5>
     </div>
   </div>
   <div class="row">
-    <div class="col-md-6 col-sm-12 sol-xs-12">
-      <h3>all info</h3>
+    <div class="col-md-4 col-sm-12 sol-xs-12">
+      <h3>Vitals</h3>
+      <h4>Weight: {{weight}} Pounds</h4>
+      <h4>Heart Rate: {{heartRate}} bpm</h4>
+      <h4>Blood Glucose: {{bloodGlucose}} mg/dl</h4>
+      <h4>Blood Pressure </h4>
+          <h5>Systolic: {{systolic}} mm Hg</h5>
+          <h5>Diastolic: {{diastolic}} mm Hg</h5>
+      <h4>Body Temperature: {{bodyTemp}} F</h4>
+
+    </div>
+    <div class="col-md-4 col-sm-12 sol-xs-12">
+      <h3>Next Appointment</h3>
+    </div>
+    <div class="col-md-4 col-sm-12 sol-xs-12">
+      <h3>Contact Info</h3>
+      <h4>Name: {{contactName}}</h4>
+      <h4>Phone Number: {{contactNumber}}</h4>
+      <h4>Relationship: {{relation}}</h4>
     </div>
   </div>
+
 
 </div>

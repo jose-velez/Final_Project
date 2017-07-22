@@ -75,17 +75,19 @@ $(document).ready(function() {
     var medicalConditions = $("#medicalConditions input:checked").map(function() {
       return this.name;
     }).get();
+    var gender = $('input[name="gender"]:checked').val();
 
     var medicalString = JSON.stringify(medicalConditions);
     console.log(medicalString);
-
+    console.log(gender);
     var recordObj = {
       recordName: recordName,
       dateOfBirth: dateOfBirth,
       contactName: contactName,
       contactNumber: contactNumber,
       relation: relation,
-      medicalConditions: medicalString
+      medicalConditions: medicalString,
+      gender: gender
     };
     console.log(recordObj);
 

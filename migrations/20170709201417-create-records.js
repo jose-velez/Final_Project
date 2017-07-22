@@ -15,6 +15,10 @@ module.exports = {
           len: [1]
         }
       },
+      gender: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       dateOfBirth: {
         type: Sequelize.DATE,
         allowNull: false
